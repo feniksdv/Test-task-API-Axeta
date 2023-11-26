@@ -4,9 +4,9 @@
 
 Необходимо разработать API для web-приложения с использованием PHP фреймворка
 Laravel в соответствие с макетами дизайна:
-![img.png](storage/app/img/img.png)
-![img_1.png](storage/app/img/img_1.png)
-![img_2.png](storage/app/img/img_2.png)
+![img.png](storage/app/img/3.png)
+![img_1.png](storage/app/img/2.png)
+![img_2.png](storage/app/img/1.png)
 
 https://www.figma.com/file/pChi3MtZsaTQhXSdRnpEjE/Axeta?node-id=1%3A2 .
 
