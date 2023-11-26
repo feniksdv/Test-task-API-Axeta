@@ -81,6 +81,7 @@ https://www.figma.com/file/pChi3MtZsaTQhXSdRnpEjE/Axeta?node-id=1%3A2 .
 - php artisan migrate --seed
 - php artisan storage:link
 - host: http://axeta.test:91/
+- swagger: http://axeta.test:91/api/documentation
 - MySQL:
     - login: axeta
     - password: root
