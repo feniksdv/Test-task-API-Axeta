@@ -85,3 +85,4 @@ https://www.figma.com/file/pChi3MtZsaTQhXSdRnpEjE/Axeta?node-id=1%3A2 .
 - MySQL:
     - login: axeta
     - password: root
+- [Коллекция для postman](storage/postman_collection.json)
