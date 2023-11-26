@@ -1,0 +1,29 @@
+version: '3.8'
+services: #все контейнеры писать внутри
+    web-axeta:
+        build:
+            context: . # загрузка DockerFile
+        container_name: web-axeta #название контейнера
+        volumes: # мантирование каталогов
+            - ./:/var/www/html/
+        restart: always # всегда перезагружать если остановился
+        depends_on: # запускать этот контейнер после того как запуститься db
+            - db-axeta
+        extra_hosts:
+            - "axeta.test:127.0.0.1"
+        ports:
+            - "91:80"
+    db-axeta:
+        image: mysql
+        container_name: db-axeta
+        tty: true
+        volumes:
+            - ./mysql_data:/var/lib/mysql/
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: axeta
+            MYSQL_USER: axeta
+            MYSQL_PASSWORD: root
+        restart: always
+        ports:
+            - "3400:3306"

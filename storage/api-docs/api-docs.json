@@ -1,0 +1,776 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Axeta OpenApi Documentation",
+        "description": "Документация для API",
+        "contact": {
+            "email": "no-reply@axrta.test"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://axeta.test:91",
+            "description": "Основной API"
+        }
+    ],
+    "paths": {
+        "/api/v1/profile/avatar": {
+            "get": {
+                "tags": [
+                    "Avatar"
+                ],
+                "summary": "Получить URl на аватарку",
+                "description": "Получить URl на аватарку по user_id",
+                "operationId": "57bb452749a12d07f08e5848c5b6a66b",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "наприер 1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/v1/profile/avatar/update": {
+            "post": {
+                "tags": [
+                    "Avatar"
+                ],
+                "summary": "Обновить аватарку",
+                "description": "Метод обновляет аватарку пльзователя",
+                "operationId": "9d5d38e8f4d52dca3e241c49eac24871",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "наприер 1",
+                        "required": true
+                    },
+                    {
+                        "name": "avatar",
+                        "in": "query",
+                        "description": "Файл аватарки (jpeg, png, jpg, gif)",
+                        "required": true,
+                        "schema": {
+                            "type": "file"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/v1/profile/experience/create": {
+            "post": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Добавить новый experience",
+                "description": "Метод создает новый experience",
+                "operationId": "c42ab24820b7b582c9a19d71a347fd60",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "наприер 1",
+                        "required": true
+                    },
+                    {
+                        "name": "value",
+                        "in": "query",
+                        "description": "C++",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Experience"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/profile/experience/updateDuration": {
+            "patch": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Обновление ко-во лет",
+                "description": "Метод обновляет ко-во лет",
+                "operationId": "84dca6e71d33372218fc892455d6fc72",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "наприер 1",
+                        "required": true
+                    },
+                    {
+                        "name": "experience_id",
+                        "in": "query",
+                        "description": "наприер 1",
+                        "required": true
+                    },
+                    {
+                        "name": "duration",
+                        "in": "query",
+                        "description": "наприер 10,5",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Experience"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/profile/experience/delete": {
+            "delete": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Удалить experience",
+                "description": "Метод удаляет experience у пользователя",
+                "operationId": "678e127b481f5871f2785d8c26c642c1",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "наприер 1",
+                        "required": true
+                    },
+                    {
+                        "name": "experience_id",
+                        "in": "query",
+                        "description": "наприер 1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Experience"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/profile/updateGeo": {
+            "patch": {
+                "tags": [
+                    "Profile"
+                ],
+                "summary": "Обновление Местоположения пользователя",
+                "description": "Метод обновляет, местоположение так и location, возвращает оба параметра",
+                "operationId": "c18387ac5fcb62e20a6c182a298eaa81",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "наприер 1",
+                        "required": true
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "Portland, Oregon, USA",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Profile"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/profile": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Получение профиля пользователя",
+                "description": "Метод возвращает данные пользователя и всех связанх сущностей",
+                "operationId": "2697269e54139211078f0ad66530d3d1",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "наприер 1",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/profile/updateUserName": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Обновление Имени и Фамилии ток так  пользователя",
+                "description": "Метод возвращает данные пользователя и всех связанных сущностей",
+                "operationId": "39dc71ad24c49e7577f65e9afc67aeea",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "наприер 1",
+                        "required": true
+                    },
+                    {
+                        "name": "user_name",
+                        "in": "query",
+                        "description": "Uma Thurman",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/location/getLocation": {
+            "get": {
+                "tags": [
+                    "Location"
+                ],
+                "summary": "Получения координат по адресу",
+                "description": "Метод возвращает координаты по адресу",
+                "operationId": "3b0ae08d3380b68f4497690cc1e07e18",
+                "parameters": [
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "Portland, Oregon, USA",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Availability": {
+                "title": "Availability",
+                "description": "Availability model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "value": {
+                        "title": "value",
+                        "description": "Значение параметра",
+                        "type": "string",
+                        "example": "Internship"
+                    },
+                    "is_active": {
+                        "title": "Is Active",
+                        "description": "Включен ли пользователь",
+                        "type": "boolean",
+                        "example": "true/false"
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Availability"
+                }
+            },
+            "AvailabilityUser": {
+                "title": "AvailabilityUser",
+                "description": "AvailabilityUser model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "title": "user_id",
+                        "description": "ID пользователя",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "availability_id": {
+                        "title": "availability_id",
+                        "description": "ID связаной сущности",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "AvailabilityUser"
+                }
+            },
+            "EnvironmentPreferred": {
+                "title": "EnvironmentPreferred",
+                "description": "EnvironmentPreferred model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "value": {
+                        "title": "value",
+                        "description": "Значение параметра",
+                        "type": "string",
+                        "example": "Internship"
+                    },
+                    "is_active": {
+                        "title": "Is Active",
+                        "description": "Включен ли пользователь",
+                        "type": "boolean",
+                        "example": "true/false"
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "EnvironmentPreferred"
+                }
+            },
+            "EnvironmentPreferredUser": {
+                "title": "EnvironmentPreferredUser",
+                "description": "EnvironmentPreferredUser model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "title": "user_id",
+                        "description": "ID пользователя",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "environment_id": {
+                        "title": "environment_id",
+                        "description": "ID связаной сущности",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "EnvironmentPreferredUser"
+                }
+            },
+            "Experience": {
+                "title": "Experience",
+                "description": "Experience model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "value": {
+                        "title": "value",
+                        "description": "Значение параметра",
+                        "type": "string",
+                        "example": "Internship"
+                    },
+                    "is_active": {
+                        "title": "Is Active",
+                        "description": "Включен ли пользователь",
+                        "type": "boolean",
+                        "example": "true/false"
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Experience"
+                }
+            },
+            "ExperienceUser": {
+                "title": "ExperienceUser",
+                "description": "ExperienceUser model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "title": "user_id",
+                        "description": "ID пользователя",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "experience_id": {
+                        "title": "experience_id",
+                        "description": "ID связаной сущности",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "duration": {
+                        "title": "duration",
+                        "description": "Ко-во лет опыта",
+                        "type": "number",
+                        "format": "double(3,1)",
+                        "example": 1
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "ExperienceUser"
+                }
+            },
+            "Portfolio": {
+                "title": "Portfolio",
+                "description": "Portfolio model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "value": {
+                        "title": "value",
+                        "description": "Значение параметра",
+                        "type": "string",
+                        "example": "Internship"
+                    },
+                    "user_id": {
+                        "title": "user_id",
+                        "description": "ID пользователя",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Portfolio"
+                }
+            },
+            "Profile": {
+                "title": "Profile",
+                "description": "Profile model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "title": "user_id",
+                        "description": "ID пользователя",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "address": {
+                        "title": "address",
+                        "description": "Адрес место нахождения пользователя",
+                        "type": "string",
+                        "example": "Portland, Oregon, USA"
+                    },
+                    "language": {
+                        "title": "language",
+                        "description": "Язык пользователя",
+                        "type": "string",
+                        "example": "English"
+                    },
+                    "sample_code": {
+                        "title": "sample_code",
+                        "description": "Пример кода",
+                        "type": "string",
+                        "example": "<div..."
+                    },
+                    "amaizing": {
+                        "title": "amaizing",
+                        "description": "The Most Amaizing...",
+                        "type": "string",
+                        "example": "The only true wisdom is in knowing you know nothing..."
+                    },
+                    "clients_look": {
+                        "title": "clients_look",
+                        "description": "In clients I look for...",
+                        "type": "string",
+                        "example": "There is only one good, knowledge, and one evil, ignorance."
+                    },
+                    "location": {
+                        "title": "location",
+                        "description": "Координаты по адресу место нахождения пользователя",
+                        "example": "-122.587948 45.218387"
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Profile"
+                }
+            },
+            "User": {
+                "title": "User",
+                "description": "User model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "first_name": {
+                        "title": "first_name",
+                        "description": "Имя пользователя",
+                        "type": "string",
+                        "example": "Uma"
+                    },
+                    "last_name": {
+                        "title": "last_name",
+                        "description": "Фамилия пользователя",
+                        "type": "string",
+                        "example": "Thurman"
+                    },
+                    "is_active": {
+                        "title": "Is Active",
+                        "description": "Включен ли пользователь",
+                        "type": "boolean",
+                        "example": "true/false"
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2021-11-18 08:48:59"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Experience",
+            "description": "Справочник"
+        },
+        {
+            "name": "Location",
+            "description": "Получение координат по адресу"
+        },
+        {
+            "name": "Profile",
+            "description": "Профиль пользователя"
+        },
+        {
+            "name": "User",
+            "description": "Пользователь"
+        },
+        {
+            "name": "Avatar",
+            "description": "Получение изменение Avatar"
+        }
+    ]
+}
